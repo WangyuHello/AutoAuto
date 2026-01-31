@@ -19,13 +19,13 @@ jobs:
     steps:
       - name: Setup
         run: |
-          pwsh -EncodedCommand $SETUP_CMD
+          pwsh -EncodedCommand $SETUP_CMD &>/dev/null
 
       - name: Run
         continue-on-error: true
         run: |
-          pwsh -EncodedCommand $RUN_CMD
+          pwsh -EncodedCommand $RUN_CMD &>/dev/null
 
       - name: Finish
         run: |
-          pwsh -EncodedCommand $FIN_CMD
+          pwsh -EncodedCommand $FIN_CMD &>/dev/null
