@@ -1,7 +1,7 @@
 name: Auto1
 on:
-  schedule:
-    - cron: '10 1/3 * * *'
+  #schedule:
+  #  - cron: '10 1/3 * * *'
   workflow_dispatch:
 
 env:
