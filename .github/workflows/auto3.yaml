@@ -5,24 +5,12 @@ on:
   workflow_dispatch:
 
 env:
-  CONFIG: ${{ secrets.CONFIG }}
-  SETUP_CMD: ${{ secrets.SETUP_CMD }}
   RUN_CMD: ${{ secrets.RUN_CMD3 }}
-  FIN_CMD: ${{ secrets.FIN_CMD }}
 
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup
-        run: |
-          pwsh -EncodedCommand $SETUP_CMD &>/dev/null
-
       - name: Run
-        continue-on-error: true
         run: |
-          pwsh -EncodedCommand $RUN_CMD &>/dev/null
-
-      - name: Finish
-        run: |
-          pwsh -EncodedCommand $FIN_CMD &>/dev/null
+          pwsh -EncodedCommand $RUN_CMD
