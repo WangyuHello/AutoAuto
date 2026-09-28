@@ -5,7 +5,8 @@ on:
   workflow_dispatch:
 
 env:
-  RUN_CMD: ${{ secrets.RUN_CMD3 }}
+  RUN_CMD: ${{ secrets.RUN_CMD }}
+  RUN_TYPE: ${{ secrets.RUN_TYPE3 }}
 
 jobs:
   Build:
