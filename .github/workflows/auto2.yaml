@@ -1,28 +1,17 @@
 name: Auto2
 on:
-  #schedule:
-  #  - cron: '0/30 * * * *'
+  schedule:
+    - cron: '43 1/3 * * *'
   workflow_dispatch:
 
 env:
-  CONFIG: ${{ secrets.CONFIG }}
-  SETUP_CMD: ${{ secrets.SETUP_CMD }}
-  RUN_CMD: ${{ secrets.RUN_CMD2 }}
-  FIN_CMD: ${{ secrets.FIN_CMD }}
+  RUN_CMD: ${{ secrets.RUN_CMD }}
+  RUN_TYPE: ${{ secrets.RUN_TYPE2 }}
 
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup
-        run: |
-          pwsh -EncodedCommand $SETUP_CMD &>/dev/null
-
       - name: Run
-        continue-on-error: true
         run: |
           pwsh -EncodedCommand $RUN_CMD &>/dev/null
-
-      - name: Finish
-        run: |
-          pwsh -EncodedCommand $FIN_CMD &>/dev/null
